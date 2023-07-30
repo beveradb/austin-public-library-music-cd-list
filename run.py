@@ -4,6 +4,8 @@ import csv
 import json
 import requests
 from bs4 import BeautifulSoup
+from urllib.parse import urlparse, parse_qs
+
 
 CACHE_FOLDER = "cache"
 MAX_PAGES_TO_FETCH = 10  # Set the maximum number of pages to fetch in a single run
@@ -48,13 +50,36 @@ def get_json_data(url):
 
 
 def write_metadata_to_csv(cd_metadata_list):
-    fields = ["Artist", "Title"]  # Add more fields as needed
+    fields = [
+        "ID",
+        "Artist",
+        "Title",
+        "UPC Barcode",
+        "Date",
+        "Language",
+    ]  # Add more fields as needed
     csv_file_path = "cd_metadata.csv"
     with open(csv_file_path, "w", newline="", encoding="utf-8") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fields)
         writer.writeheader()
         for cd_metadata in cd_metadata_list:
-            writer.writerow(cd_metadata)
+            # Extract the UPC barcode from the jacket URL
+            jacket_url = cd_metadata.get("Jacket", {}).get("medium", "")
+            upc = ""
+            if jacket_url:
+                upc = parse_qs(urlparse(jacket_url).query).get("upc", [""])[0]
+
+            # Write the CD metadata to the CSV row
+            writer.writerow(
+                {
+                    "ID": cd_metadata.get("ID", ""),
+                    "Artist": cd_metadata.get("Artist", ""),
+                    "Title": cd_metadata.get("Title", ""),
+                    "UPC Barcode": upc,
+                    "Date": cd_metadata.get("Date", ""),
+                    "Language": cd_metadata.get("Language", ""),
+                }
+            )
 
 
 def parse_json_and_extract_metadata(json_data):
@@ -79,13 +104,22 @@ def parse_json_and_extract_metadata(json_data):
                 if len(artists) > 0:
                     artist = artists[0]
 
-                # Set 'title' to default if it's empty
-                title = brief_info.get("title", "Unknown Title") or "Unknown Title"
+                title = brief_info.get("title", "")
 
-                # Step 5: Store metadata in a list of dictionaries
+                # Step 5: Extract additional metadata fields
+                metadata_id = cd_info.get("id", "")
+                publication_date = brief_info.get("publicationDate", "")
+                primary_language = brief_info.get("primaryLanguage", "")
+
+                # Step 6: Store metadata in a list of dictionaries
                 cd_metadata = {
+                    "ID": metadata_id,
                     "Artist": artist,
                     "Title": title,
+                    "UPC Barcode": "",
+                    "Date": publication_date,
+                    "Language": primary_language,
+                    "Jacket": brief_info.get("jacket", {}),
                 }
                 cd_metadata_list.append(cd_metadata)
             except Exception as e:
