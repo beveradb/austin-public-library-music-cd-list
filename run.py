@@ -63,19 +63,13 @@ def write_metadata_to_csv(cd_metadata_list):
         writer = csv.DictWriter(csvfile, fieldnames=fields)
         writer.writeheader()
         for cd_metadata in cd_metadata_list:
-            # Extract the UPC barcode from the jacket URL
-            jacket_url = cd_metadata.get("Jacket", {}).get("medium", "")
-            upc = ""
-            if jacket_url:
-                upc = parse_qs(urlparse(jacket_url).query).get("upc", [""])[0]
-
             # Write the CD metadata to the CSV row
             writer.writerow(
                 {
                     "ID": cd_metadata.get("ID", ""),
                     "Artist": cd_metadata.get("Artist", ""),
                     "Title": cd_metadata.get("Title", ""),
-                    "UPC Barcode": upc,
+                    "UPC Barcode": cd_metadata.get("UPC Barcode", ""),
                     "Date": cd_metadata.get("Date", ""),
                     "Language": cd_metadata.get("Language", ""),
                 }
@@ -94,41 +88,46 @@ def parse_json_and_extract_metadata(json_data):
 
         # Step 3: Iterate through each CD
         for cd_id, cd_info in bibs_data.items():
-            try:
-                # Step 4: Extract artist and title
-                brief_info = cd_info.get("briefInfo", {})
+            # Step 4: Extract artist and title
+            brief_info = cd_info.get("briefInfo", {})
+            artist = (
+                "Unknown Artist"  # Default to "Unknown Artist" if no author is provided
+            )
+            artists = brief_info.get("authors", [])
+            if artists:
+                # Check if the artist name is in "Surname, Forename" format and convert it to "Forename Surname"
+                artist_name = artists[0]
+                if ", " in artist_name:
+                    last_name, first_name = artist_name.split(", ", 1)
+                    artist = f"{first_name} {last_name}"
+                else:
+                    artist = artist_name
 
-                # Default to Unknown Artist if the 'authors' list is empty
-                artist = "Unknown Artist"
-                artists = brief_info.get("authors")
-                if len(artists) > 0:
-                    artist = artists[0]
+                # Remove the " (Musical group)" suffix
+                artist = artist.replace(" (Musical group)", "")
+                # Remove the " (Musician)" suffix
+                artist = artist.replace(" (Musician)", "")
 
-                title = brief_info.get("title", "")
+            title = brief_info.get("title", "")
+            publication_date = brief_info.get("publicationDate", "")
+            upc = parse_qs(urlparse(brief_info["jacket"]["medium"]).query).get(
+                "upc", [""]
+            )[0]
+            language = brief_info.get("primaryLanguage", "")
 
-                # Step 5: Extract additional metadata fields
-                metadata_id = cd_info.get("id", "")
-                publication_date = brief_info.get("publicationDate", "")
-                primary_language = brief_info.get("primaryLanguage", "")
+            # Step 5: Store metadata in a list of dictionaries
+            cd_metadata = {
+                "ID": cd_id,
+                "Artist": artist,
+                "Title": title,
+                "UPC Barcode": upc,
+                "Date": publication_date,
+                "Language": language,
+            }
+            cd_metadata_list.append(cd_metadata)
 
-                # Step 6: Store metadata in a list of dictionaries
-                cd_metadata = {
-                    "ID": metadata_id,
-                    "Artist": artist,
-                    "Title": title,
-                    "UPC Barcode": "",
-                    "Date": publication_date,
-                    "Language": primary_language,
-                    "Jacket": brief_info.get("jacket", {}),
-                }
-                cd_metadata_list.append(cd_metadata)
-            except Exception as e:
-                print(f"Error processing CD with ID '{cd_id}':", e)
-
-    except json.JSONDecodeError as e:
-        print("Error parsing JSON:", e)
     except Exception as e:
-        print("An error occurred while processing CD data:", e)
+        print("Error parsing JSON:", e)
 
     return cd_metadata_list
 
