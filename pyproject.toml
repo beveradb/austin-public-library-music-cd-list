@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "austin-public-library-music-cd-list"
+version = "0.1.0"
+description = "Fetch all music CDs available to borrow from the Austin Public Library, and list these by Artist and Title as a CSV file"
+authors = ["Andrew Beveridge <andrew@beveridge.uk>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "austin_public_library_music_cd_list"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31.0"
+beautifulsoup4 = "^4.12.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
