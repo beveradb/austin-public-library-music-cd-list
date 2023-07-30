@@ -1,0 +1,674 @@
+{
+    "app": {
+        "coreCssFingerprint": "1690295369376",
+        "coreAssets": {
+            "cdnHost": "https://cor-liv-cdn-static.bibliocommons.com",
+            "cssPath": "/dynamic_stylesheet",
+            "defaultStylesheet": "library_branding.css"
+        },
+        "airbrakeConfig": {
+            "enabled": true,
+            "env": "live",
+            "projectId": "116837",
+            "projectKey": "ac785af5440658f1a66a40a30b07cc9e"
+        },
+        "enableWebpackHMR": false,
+        "apiGatewayURL": "https://gateway.bibliocommons.com/v2",
+        "authRequired": false,
+        "browser": "",
+        "internalEventsGAId": "UA-53807008-1",
+        "accountRequired": false,
+        "localBranch": null,
+        "internalCoreGAId": "UA-12552489-1",
+        "featureOverrides": {},
+        "mobileAppPlatform": null,
+        "datadogConfig": {},
+        "currentURL": "/v2/search?custom_edit=false&query=formatcode:(MUSIC_CD)&searchType=bl&suppress=true&f_CIRC=CIRC&sort=newly_acquired&page=1",
+        "basePath": "/v2",
+        "enableReduxDevTools": false,
+        "appVersion": "nerf06 Version 9.16.0@b1d012c Last updated 2023/07/25 10:21 Built 2023/07/20 17:37",
+        "coreVersion": "9.16.0",
+        "mobileAppVersion": null,
+        "baseURL": "https://austin.bibliocommons.com",
+        "libraryDomain": "austin",
+        "mobileApp": false
+    },
+    "entities": {
+        "mediaSummaries": {},
+        "eventLanguages": {},
+        "listItems": {},
+        "cards": {},
+        "authorSuggestions": {},
+        "interlibraryLoans": {},
+        "promos": {},
+        "bibItems": {},
+        "suggestForPurchase": {},
+        "accounts": {},
+        "holdableItems": {},
+        "borrowingHistory": {},
+        "shelves": {},
+        "users": {},
+        "eventPrograms": {},
+        "featuredContent": {},
+        "places": {},
+        "messages": {},
+        "sites": {
+            "TX-AUSTIN": {
+                "siteId": "TX-AUSTIN",
+                "domain": "austin",
+                "subdomain": "austin",
+                "shortName": "APL",
+                "longName": "Austin Public Library",
+                "logo": "/images/TX-AUSTIN/logo.png",
+                "defaultScopeId": "TX-AUSTIN",
+                "libraryId": 67,
+                "type": "CORE",
+                "scopes": [
+                    {
+                        "scopeName": "Austin Public Library",
+                        "scopeId": "TX-AUSTIN",
+                        "parentScopeId": null
+                    }
+                ]
+            }
+        },
+        "checkouts": {},
+        "holdings": {},
+        "ugc": {},
+        "eventSeries": {},
+        "catalogBibs": {},
+        "excerpts": {},
+        "holds": {},
+        "eventAudiences": {},
+        "lists": {},
+        "ignoredUsers": {},
+        "specialHours": {},
+        "subscriptions": {},
+        "facilityTypes": {},
+        "authorNotes": {},
+        "images": {},
+        "bibs": {
+            "S67C2203740": {
+                "id": "S67C2203740",
+                "sourceLibId": 67,
+                "briefInfo": {
+                    "groupKey": "gag_order�kesha�music",
+                    "superFormats": [
+                        "MUSIC_SOUND",
+                        "MODERN_FORMATS"
+                    ],
+                    "genreForm": [
+                        "Popular Music",
+                        "Rock music.",
+                        "Rock Music",
+                        "Popular music."
+                    ],
+                    "callNumber": "CD POP KESH",
+                    "authors": [
+                        "Kesha"
+                    ],
+                    "metadataId": "S67C2203740",
+                    "jacket": {
+                        "type": "SYNDETICS",
+                        "small": "https://secure.syndetics.com/index.aspx?isbn=/SC.GIF&client=austinpl&type=xw12&oclc=&upc=196588011429",
+                        "medium": "https://secure.syndetics.com/index.aspx?isbn=/MC.GIF&client=austinpl&type=xw12&oclc=&upc=196588011429",
+                        "large": "https://secure.syndetics.com/index.aspx?isbn=/LC.JPG&client=austinpl&type=xw12&oclc=&upc=196588011429",
+                        "local_url": null
+                    },
+                    "multiscriptAuthor": null,
+                    "audiences": [
+                        "ADULT"
+                    ],
+                    "consumptionFormat": "LISTEN",
+                    "contentType": "UNDETERMINED",
+                    "multiscriptTitle": null,
+                    "compositeSubjectHeadings": [
+                        "Popular Music.",
+                        "Rock Music -- 2021-2030.",
+                        "Popular Music.",
+                        "Rock Music."
+                    ],
+                    "series": [],
+                    "format": "MUSIC_CD",
+                    "subtitle": "",
+                    "title": "Gag Order",
+                    "primaryLanguage": "eng",
+                    "publicationDate": "2023",
+                    "id": "S67C2203740",
+                    "description": null,
+                    "isbns": [],
+                    "rating": {
+                        "averageRating": 30,
+                        "totalCount": 2
+                    },
+                    "subjectHeadings": [
+                        "Popular music.",
+                        "Rock music 2021-2030."
+                    ],
+                    "edition": "Explicit version."
+                },
+                "policy": {
+                    "materialType": "PHYSICAL",
+                    "provider": "ILS",
+                    "holdable": true,
+                    "itemLevelHoldableItems": false,
+                    "materialPolicy": {
+                        "requiresDuration": false,
+                        "supportsSuspendHoldStartDateEdit": true,
+                        "supportAutoCheckout": false,
+                        "supportsBatchVolumeHolds": true,
+                        "requiresFormatDuringHold": false,
+                        "supportsBorrowingHistory": false,
+                        "borrowingHistorySupportsReturnedDates": true,
+                        "showQuickstartLink": false,
+                        "supportsDownload": false,
+                        "requiresFormatDuringCheckout": false,
+                        "requiresEmailDuringHold": false,
+                        "helpUrl": null,
+                        "externalAPI": false,
+                        "itemLevelHoldsPredetermined": true,
+                        "showFormatDuringHold": false,
+                        "supportsSuspendHold": false,
+                        "maintainsBorrowingHistoryOnDisable": true,
+                        "quickStartUrl": null,
+                        "showFormatDuringCheckout": false,
+                        "supportsFastAvailability": false,
+                        "supportsReadNow": false,
+                        "supportsSuspendHoldEndDateEdit": true,
+                        "supportsCancelledExpiredHolds": true,
+                        "healthy": true
+                    }
+                },
+                "availability": {
+                    "circulationType": "REQUEST",
+                    "onOrderCopies": 1,
+                    "localisedStatus": "UNAVAILABLE",
+                    "heldCopies": 4,
+                    "eresourceDescription": null,
+                    "singleBranch": false,
+                    "metadataId": "S67C2203740",
+                    "availabilityLocationType": "NA",
+                    "statusType": "UNAVAILABLE",
+                    "status": "UNAVAILABLE",
+                    "bibType": "PHYSICAL",
+                    "volumesCount": 0,
+                    "totalCopies": 3,
+                    "libraryUseOnly": false,
+                    "eresourceUrl": null,
+                    "availableCopies": 0
+                }
+            },
+            "S67C2203741": {
+                "id": "S67C2203741",
+                "sourceLibId": 67,
+                "briefInfo": {
+                    "groupKey": "in_between_dub�johnson_jack�music",
+                    "superFormats": [
+                        "MUSIC_SOUND",
+                        "MODERN_FORMATS"
+                    ],
+                    "genreForm": [
+                        "Reggae Music",
+                        "Reggae music.",
+                        "Remixes (Music)",
+                        "Remixes (Music)-(OCoLC)fst01726719"
+                    ],
+                    "callNumber": "CD REGGAE JOHN",
+                    "authors": [
+                        "Johnson, Jack"
+                    ],
+                    "metadataId": "S67C2203741",
+                    "jacket": {
+                        "type": "SYNDETICS",
+                        "small": "https://secure.syndetics.com/index.aspx?isbn=/SC.GIF&client=austinpl&type=xw12&oclc=&upc=602455444165",
+                        "medium": "https://secure.syndetics.com/index.aspx?isbn=/MC.GIF&client=austinpl&type=xw12&oclc=&upc=602455444165",
+                        "large": "https://secure.syndetics.com/index.aspx?isbn=/LC.JPG&client=austinpl&type=xw12&oclc=&upc=602455444165",
+                        "local_url": null
+                    },
+                    "multiscriptAuthor": null,
+                    "audiences": [
+                        "ADULT"
+                    ],
+                    "consumptionFormat": "LISTEN",
+                    "contentType": "UNDETERMINED",
+                    "multiscriptTitle": null,
+                    "compositeSubjectHeadings": [
+                        "Dub (Music)",
+                        "Rock Music.",
+                        "Remixes (Music)",
+                        "Reggae Music.",
+                        "Remixes (Music)"
+                    ],
+                    "series": [],
+                    "format": "MUSIC_CD",
+                    "subtitle": "",
+                    "title": "In Between Dub",
+                    "primaryLanguage": "eng",
+                    "publicationDate": "2023",
+                    "id": "S67C2203741",
+                    "description": "In March 2020, Jack Johnson reached out to Lee 'Scratch' Perry to produce a dub remix album based on Jack's most loved recordings. On August 29, 2021, the project was brought to a halt as Scratch departed this physical world. In 2022, Jack and Subatomic Sound System, Perry's band of the last decade, connected directly and discovered they had all the pieces to bring Lee 'Scratch' Perry's three creations to completion.",
+                    "isbns": [],
+                    "rating": {},
+                    "subjectHeadings": [
+                        "Dub (Music)",
+                        "Rock music. fast (OCoLC)fst01099204"
+                    ],
+                    "edition": null
+                },
+                "policy": {
+                    "materialType": "PHYSICAL",
+                    "provider": "ILS",
+                    "holdable": true,
+                    "itemLevelHoldableItems": false,
+                    "materialPolicy": {
+                        "requiresDuration": false,
+                        "supportsSuspendHoldStartDateEdit": true,
+                        "supportAutoCheckout": false,
+                        "supportsBatchVolumeHolds": true,
+                        "requiresFormatDuringHold": false,
+                        "supportsBorrowingHistory": false,
+                        "borrowingHistorySupportsReturnedDates": true,
+                        "showQuickstartLink": false,
+                        "supportsDownload": false,
+                        "requiresFormatDuringCheckout": false,
+                        "requiresEmailDuringHold": false,
+                        "helpUrl": null,
+                        "externalAPI": false,
+                        "itemLevelHoldsPredetermined": true,
+                        "showFormatDuringHold": false,
+                        "supportsSuspendHold": false,
+                        "maintainsBorrowingHistoryOnDisable": true,
+                        "quickStartUrl": null,
+                        "showFormatDuringCheckout": false,
+                        "supportsFastAvailability": false,
+                        "supportsReadNow": false,
+                        "supportsSuspendHoldEndDateEdit": true,
+                        "supportsCancelledExpiredHolds": true,
+                        "healthy": true
+                    }
+                },
+                "availability": {
+                    "circulationType": "REQUEST",
+                    "onOrderCopies": 1,
+                    "localisedStatus": "UNAVAILABLE",
+                    "heldCopies": 3,
+                    "eresourceDescription": null,
+                    "singleBranch": false,
+                    "metadataId": "S67C2203741",
+                    "availabilityLocationType": "NA",
+                    "statusType": "UNAVAILABLE",
+                    "status": "UNAVAILABLE",
+                    "bibType": "PHYSICAL",
+                    "volumesCount": 0,
+                    "totalCopies": 2,
+                    "libraryUseOnly": false,
+                    "eresourceUrl": null,
+                    "availableCopies": 0
+                }
+            },
+        },
+        "followedUsers": {},
+        "events": {},
+        "fines": {},
+        "seriesEntries": {},
+        "libraries": {},
+        "availabilities": {},
+        "externalResources": {},
+        "recommendations": {},
+        "reviews": {},
+        "systemMessages": {},
+        "features": {},
+        "relatedAuthors": {},
+        "marcFields": {},
+        "locations": {},
+        "eventTypes": {}
+    },
+    "movies": {
+        "movie": {
+            "id": null,
+            "isFetching": false
+        }
+    },
+    "cards": {
+        "cardSearch": {
+            "results": [],
+            "isFetching": false
+        }
+    },
+    "suggestForPurchase": {
+        "suggestForPurchaseTransactions": {
+            "isAdding": false
+        }
+    },
+    "analytics": {},
+    "shelves": {
+        "importResult": {
+            "isFetching": false
+        },
+        "shelfTransactions": {},
+        "shelfSearch": {
+            "isFetching": false,
+            "shelf": {
+                "userId": null,
+                "name": null,
+                "privateByDefault": false,
+                "facets": [],
+                "items": [],
+                "sort": {
+                    "direction": null,
+                    "fields": []
+                },
+                "query": {
+                    "filters": {}
+                },
+                "pagination": {
+                    "page": 0,
+                    "pages": 1,
+                    "limit": 25,
+                    "count": 1
+                }
+            },
+            "summary": {
+                "shelves": []
+            }
+        }
+    },
+    "auth": {
+        "sessionId": null,
+        "authToken": null,
+        "currentUserId": null,
+        "loginError": null,
+        "loginDialogOpen": false,
+        "preLoginAction": null,
+        "loading": false
+    },
+    "search": {
+        "addTitle": {
+            "isFetching": false,
+            "pagination": {
+                "page": 1,
+                "pages": 1,
+                "limit": 25,
+                "count": 1
+            },
+            "results": [],
+            "searchQuery": {
+                "query": null,
+                "page": 1,
+                "searchType": "smart"
+            },
+            "zeroResults": true
+        },
+        "catalogSearch": {
+            "searchType": "bl",
+            "probes": {},
+            "view": "grouped",
+            "didYouMeanQuerySuggestion": null,
+            "query": "formatcode:(MUSIC_CD)",
+            "broadened": false,
+            "locked": false,
+            "featuredContent": {},
+            "resultPaneActive": true,
+            "broadenedSearchType": null,
+            "didYouMeanResultCount": 0,
+            "zeroResults": false,
+            "isFetching": false,
+            "searchTerm": "formatcode:(MUSIC_CD)",
+            "scope": "TX-AUSTIN",
+            "activeFilters": {
+                "CIRC": [
+                    {
+                        "value": "CIRC",
+                        "groupIds": [],
+                        "label": "",
+                        "count": 25788,
+                        "applied": true
+                    }
+                ]
+            },
+            "suppress": true,
+            "results": [
+                {
+                    "representative": "S67C2203742",
+                    "manifestations": [
+                        "S67C2203742"
+                    ]
+                },
+                {
+                    "representative": "S67C2203728",
+                    "manifestations": [
+                        "S67C2069580",
+                        "S67C1041701",
+                        "S67C2203728"
+                    ]
+                },
+                {
+                    "representative": "S67C2203748",
+                    "manifestations": [
+                        "S67C2203748"
+                    ]
+                },
+                {
+                    "representative": "S67C2203736",
+                    "manifestations": [
+                        "S67C2203736"
+                    ]
+                },
+                {
+                    "representative": "S67C2203740",
+                    "manifestations": [
+                        "S67C2203740"
+                    ]
+                },
+                {
+                    "representative": "S67C2203723",
+                    "manifestations": [
+                        "S67C2203723"
+                    ]
+                },
+                {
+                    "representative": "S67C2203741",
+                    "manifestations": [
+                        "S67C2203741"
+                    ]
+                },
+                {
+                    "representative": "S67C2203304",
+                    "manifestations": [
+                        "S67C2203304"
+                    ]
+                },
+                {
+                    "representative": "S67C2203312",
+                    "manifestations": [
+                        "S67C2203312"
+                    ]
+                },
+                {
+                    "representative": "S67C2203726",
+                    "manifestations": [
+                        "S67C2203726"
+                    ]
+                }
+            ],
+            "custom_edit": false,
+            "title": null,
+            "title_key": null,
+            "fields": [],
+            "pagination": {
+                "count": 25324,
+                "limit": 10,
+                "page": 1,
+                "pages": 2533,
+                "pageForSolr": 0
+            },
+            "broadenedSearchCount": 0,
+            "rssURL": "https://gateway.bibliocommons.com/v2/libraries/austin/rss/search?query=formatcode%3A%28MUSIC_CD%29&searchType=bl&custom_edit=false&suppress=true&f_CIRC=CIRC&sort=newly_acquired&page=1&view=grouped",
+            "sortBys": [
+                {
+                    "id": "relevancy",
+                    "applied": false
+                },
+                {
+                    "id": "newly_acquired",
+                    "applied": true
+                },
+                {
+                    "id": "title",
+                    "applied": false
+                },
+                {
+                    "id": "author",
+                    "applied": false
+                },
+                {
+                    "id": "published_date",
+                    "applied": false
+                },
+                {
+                    "id": "ugc_rating",
+                    "applied": false
+                }
+            ]
+        },
+        "catalogSearchOptions": {
+            "showGroupings": false
+        },
+        "searchForm": {
+            "searchTerm": "",
+            "searchType": "smart"
+        }
+    },
+    "preview": {
+        "previewTransactions": {},
+        "previewFeatures": {
+            "nerf_bib_page": false
+        }
+    },
+    "errors": {
+        "libraryError": null
+    },
+    "user": {
+        "isFetching": false
+    },
+    "availabilityDetail": {
+        "metadataId": null,
+        "open": false
+    },
+    "borrowing": {},
+    "ugc": {},
+    "drawer": {
+        "open": false
+    },
+    "catalogBibs": {
+        "catalogBib": {
+            "isLoaded": false,
+            "isFetching": false,
+            "id": null
+        },
+        "manifestations": {
+            "isLoaded": false,
+            "isFetching": false
+        }
+    },
+    "analyticsGa4": {
+        "productId": null,
+        "productVersion": null
+    },
+    "ui": {},
+    "lists": {
+        "lists": {
+            "items": [],
+            "pagination": {},
+            "isFetching": false
+        },
+        "currentUserLists": {},
+        "listItemTransactions": {}
+    },
+    "bibs": {
+        "userTransactions": {
+            "shelves": {},
+            "borrowing": {
+                "holds": {},
+                "checkouts": {}
+            },
+            "ugc": {},
+            "suggestForPurchase": {},
+            "isLoaded": false,
+            "isFetching": false
+        },
+        "digitalFormats": {},
+        "seriesInfo": {
+            "isLoaded": false,
+            "isFetching": false,
+            "id": null
+        },
+        "holdableItems": {
+            "items": [],
+            "isLoaded": false,
+            "isFetching": false
+        },
+        "discovery": {},
+        "ugc": {},
+        "recommendations": {},
+        "reviews": {},
+        "availability": {
+            "errorClassification": null,
+            "items": [],
+            "probes": [],
+            "subscriptions": [],
+            "holdings": [],
+            "isLoaded": false,
+            "isFetching": false
+        },
+        "evaluation": {
+            "isLoaded": false,
+            "isFetching": false,
+            "authorNotes": {},
+            "reviews": {
+                "items": []
+            },
+            "mediaSummaries": {},
+            "relatedAuthors": {
+                "items": []
+            },
+            "excerpt": {},
+            "externalResources": {
+                "items": []
+            }
+        },
+        "marcFields": {}
+    },
+    "events": {
+        "eventsSearch": {
+            "results": [],
+            "featuredEvent": {},
+            "pagination": {},
+            "facetFields": {},
+            "query": {},
+            "isFetching": false,
+            "eventsRSSLink": ""
+        },
+        "myEvents": {
+            "events": [],
+            "pagination": {},
+            "query": {},
+            "isFetching": false
+        }
+    },
+    "localization": {},
+    "templates": {},
+    "recommendation": {},
+    "library": {
+        "id": 67
+    },
+    "relationships": {
+        "isFetching": false,
+        "syncingFollowsByTargetUserId": {},
+        "syncingIgnoresByTargetUserId": {}
+    },
+    "branding": {},
+    "redirect": {},
+    "locations": {},
+    "featureTogglz": {}
+}

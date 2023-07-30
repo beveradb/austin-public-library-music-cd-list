@@ -163,3 +163,4 @@ cython_debug/
 
 # Functional output from this code
 cache/
+cd_metadata.csv
