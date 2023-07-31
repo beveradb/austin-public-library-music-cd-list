@@ -11,7 +11,7 @@ INPUT_CSV_FILE = "cd_metadata_output_2023-07-30.csv"
 OUTPUT_CSV_FILE = "cd_metadata_with_redacted_results.csv"
 
 # Limit number of rows to process (for testing) - set to None to process all rows
-ROW_PROCESS_LIMIT = 5
+ROW_PROCESS_LIMIT = 26000
 
 # Cache folder
 CACHE_FOLDER = "red_cache"
@@ -177,6 +177,10 @@ def main():
         # Add the number of results to the row
         row["Redacted Torrent Results"] = num_results_cd
         row["Redacted Requests Results"] = num_results_requests
+
+        # Generate the URL for the Library
+        library_url = f"https://austin.bibliocommons.com/v2/record/{row['ID']}"
+        row["Library URL"] = library_url
 
         print(f"Processed CD {i}/{len(rows)}")
 
