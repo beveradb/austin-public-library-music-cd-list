@@ -13,18 +13,25 @@ ROW_PROCESS_LIMIT = 1
 
 
 def lookup_cd_on_redacted(artist, title, api_token, base_url, limit=5):
-    url = f"{base_url}?action=browse&artistname={artist}&groupname={title}&format=FLAC&media=CD"
+    url = base_url
+    params = {
+        "action": "browse",
+        "artistname": artist,
+        "groupname": title,
+        "format": "FLAC",
+        "media": "CD",
+    }
     headers = {
         "Authorization": api_token,
     }
 
     try:
-        print(f"Querying URL: {url} with headers: {headers}")
-        response = requests.get(url, headers=headers)
+        print(f"Querying URL: {url} with params: {params} and headers: {headers}")
+        response = requests.get(url, params=params, headers=headers)
         response.raise_for_status()  # Check if the request was successful
 
-        # Introduce a 1-second delay after each API call
-        time.sleep(1)
+        # Introduce a 2-second delay after each API call to ensure we don't exceed the API rate limit
+        time.sleep(2)
 
         # Parse the API response and extract the number of results
         json_data = response.json()
