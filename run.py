@@ -8,7 +8,7 @@ from urllib.parse import urlparse, parse_qs
 
 
 CACHE_FOLDER = "cache"
-MAX_PAGES_TO_FETCH = 10  # Set the maximum number of pages to fetch in a single run
+MAX_PAGES_TO_FETCH = 2579  # Set the maximum number of pages to fetch in a single run
 
 
 def get_json_data(url):
@@ -22,7 +22,7 @@ def get_json_data(url):
         if os.path.exists(cached_file_path):
             with open(cached_file_path, "r") as cached_file:
                 json_data = cached_file.read()
-            print("JSON data loaded from cache.")
+            print(f"JSON data loaded from cache file {cached_file_path}.")
         else:
             response = requests.get(url)
             response.raise_for_status()  # Check if the request was successful
@@ -35,7 +35,7 @@ def get_json_data(url):
                 # Cache the JSON data to a file
                 with open(cached_file_path, "w") as cached_file:
                     cached_file.write(json_data)
-                print("JSON data fetched and cached.")
+                print(f"JSON data fetched and cached to file {cached_file_path}.")
             else:
                 print("JSON data not found in the HTML.")
                 return None
@@ -160,7 +160,7 @@ def fetch_all_cd_metadata():
 
     if all_cd_metadata:
         write_metadata_to_csv(all_cd_metadata)
-        print("All CD metadata fetched and CSV file written.")
+        print(f"All CD metadata fetched and CSV file written, {len(all_cd_metadata)} records in total.")
     else:
         print("Unable to fetch CD metadata.")
 
