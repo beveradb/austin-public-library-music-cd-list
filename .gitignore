@@ -162,5 +162,6 @@ cython_debug/
 .vscode
 
 # Functional output from this code
-cache/
+library_cache/
+red_cache/
 *.csv

@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse, parse_qs
 
 
-CACHE_FOLDER = "cache"
+CACHE_FOLDER = "library_cache"
 MAX_PAGES_TO_FETCH = 2579  # Set the maximum number of pages to fetch in a single run
 
 

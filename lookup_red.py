@@ -3,6 +3,8 @@ import os
 import csv
 import time
 import requests
+from slugify import slugify
+import json
 
 # Input and output CSV file paths
 INPUT_CSV_FILE = "cd_metadata_output_2023-07-30.csv"
@@ -10,6 +12,32 @@ OUTPUT_CSV_FILE = "cd_metadata_with_redacted_results.csv"
 
 # Limit number of rows to process (for testing) - set to None to process all rows
 ROW_PROCESS_LIMIT = 1
+
+# Cache folder
+CACHE_FOLDER = "red_cache"
+
+
+def generate_cache_filename(url, params):
+    # Combine URL and params and use slugify to make the filename human-readable
+    slug_url = slugify(url + json.dumps(params, sort_keys=True))
+    return slug_url + ".json"
+
+
+def load_from_cache(url, params):
+    cache_file_path = os.path.join(CACHE_FOLDER, generate_cache_filename(url, params))
+    if os.path.exists(cache_file_path):
+        with open(cache_file_path, "r") as cached_file:
+            json_data = cached_file.read()
+        print(f"JSON data loaded from cache file {cache_file_path}.")
+        return json.loads(json_data)
+    return None
+
+
+def save_to_cache(url, params, json_data):
+    cache_file_path = os.path.join(CACHE_FOLDER, generate_cache_filename(url, params))
+    with open(cache_file_path, "w") as cached_file:
+        cached_file.write(json.dumps(json_data))
+    print(f"JSON data cached to file {cache_file_path}.")
 
 
 def lookup_cd_on_redacted(artist, title, api_token, base_url, limit=5):
@@ -26,6 +54,11 @@ def lookup_cd_on_redacted(artist, title, api_token, base_url, limit=5):
     }
 
     try:
+        # Check if cached data exists for the URL and params
+        cached_data = load_from_cache(url, params)
+        if cached_data:
+            return cached_data
+
         print(f"Querying URL: {url} with params: {params} and headers: {headers}")
         response = requests.get(url, params=params, headers=headers)
         response.raise_for_status()  # Check if the request was successful
@@ -35,10 +68,15 @@ def lookup_cd_on_redacted(artist, title, api_token, base_url, limit=5):
 
         # Parse the API response and extract the number of results
         json_data = response.json()
+
+        # Cache the API response
+        save_to_cache(url, params, json_data)
+
         num_results = len(json_data["response"]["results"])
 
         # Limit the number of results to the specified limit
         num_results = min(num_results, limit)
+
         return num_results
     except requests.exceptions.RequestException as e:
         print(f"Error fetching data from Redacted for {artist} - {title}:", e)
@@ -59,6 +97,10 @@ def main():
     if not base_url:
         print("REDACTED_API_BASE_URL environment variable is not set.")
         return
+
+    # Create the cache folder if it doesn't exist
+    if not os.path.exists(CACHE_FOLDER):
+        os.makedirs(CACHE_FOLDER)
 
     with open(INPUT_CSV_FILE, "r", newline="", encoding="utf-8") as csvfile:
         reader = csv.DictReader(csvfile)
